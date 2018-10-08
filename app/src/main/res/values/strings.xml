@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Android Genesis Template</string>
+    <string name="base_url">https://jsonplaceholder.typicode.com/</string>
+
+    <string name="comments_with_amount">Comments (%1$d)</string>
 </resources>

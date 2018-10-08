@@ -2,6 +2,9 @@
 .gradle
 /.idea
 /build
+/app/build
+/router-annotation/build/
+/router-processor/build/
 *.iml
 
 #built application files

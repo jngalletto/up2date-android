@@ -1,98 +1,105 @@
+apply plugin: 'io.gitlab.arturbosch.detekt'
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+apply from: '../detekt.gradle'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.0"
+    compileSdkVersion buildVersions.compileSdkVersion
+    buildToolsVersion buildVersions.buildToolsVersion
     defaultConfig {
-        applicationId "com.example.moove_it.androidgenesistemplate"
-        minSdkVersion 22
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        applicationId "com.mooveit.genesis"
+        minSdkVersion buildVersions.minSdkVersion
+        targetSdkVersion buildVersions.targetSdkVersion
+        versionCode buildVersions.versionCode
+        versionName buildVersions.versionName
 
         vectorDrawables.useSupportLibrary = true
-
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    flavorDimensions 'env'
+    productFlavors {
+        production {
+            dimension 'env'
+        }
+
+        staging {
+            dimension 'env'
+            applicationIdSuffix '.staging'
+        }
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+    lintOptions {
+        checkAllWarnings true
+        ignore 'GradleDependency', 'NewerVersionAvailable', 'UnusedIds'
+        warningsAsErrors true
+        abortOnError true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    packagingOptions {
+        exclude '.readme'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+}
+
+androidExtensions {
+    experimental = true
+}
+
+kotlin {
+    experimental {
+        coroutines "enable"
     }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    // Android
+    implementation project(':router-annotation')
+    kapt project(':router-processor')
+
+    implementation "android.arch.lifecycle:extensions:$lifecycleVersion"
     implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
-    implementation "com.android.support:cardview-v7:$supportLibraryVersion"
     implementation "com.android.support:design:$supportLibraryVersion"
+    implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
     implementation "com.android.support:support-v4:$supportLibraryVersion"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "com.github.mrmike:ok2curl:$ok2curlVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+    implementation "com.google.dagger:dagger-android:$daggerVersion"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:$coroutinesAdapterVersion"
+    implementation "com.jakewharton.threetenabp:threetenabp:${localDateBackport}"
+    implementation "com.jakewharton.timber:timber:$timberVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpLoggingInterceptorVersion"
+    implementation "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+    implementation "com.squareup.retrofit2:retrofit:${retrofitVersion}"
     implementation "javax.inject:javax.inject:$javaxVersion"
-
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
-
-    // ViewModel and LiveData
-    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
-    // alternatively - just ViewModel
-    implementation "android.arch.lifecycle:viewmodel:$lifecycle_version" // use -ktx for Kotlin
-    // alternatively - just LiveData
-    implementation "android.arch.lifecycle:livedata:$lifecycle_version"
-    // alternatively - Lifecycles only (no ViewModel or LiveData).
-    //     Support library depends on this lightweight import
-    implementation "android.arch.lifecycle:runtime:$lifecycle_version"
-
-    annotationProcessor "android.arch.lifecycle:compiler:$lifecycle_version" // use kapt for Kotlin
-    // alternately - if using Java8, use the following instead of compiler
-    implementation "android.arch.lifecycle:common-java8:$lifecycle_version"
-
-    // optional - ReactiveStreams support for LiveData
-    implementation "android.arch.lifecycle:reactivestreams:$lifecycle_version"
-
-    // optional - Test helpers for LiveData
-    testImplementation "android.arch.core:core-testing:$lifecycle_version"
-
-
-    // ROOM
-    implementation "android.arch.persistence.room:runtime:$room_version"
-    annotationProcessor "android.arch.persistence.room:compiler:$room_version" // use kapt for Kotlin
-
-    // optional - RxJava support for Room
-    implementation "android.arch.persistence.room:rxjava2:$room_version"
-
-    // optional - Guava support for Room, including Optional and ListenableFuture
-    implementation "android.arch.persistence.room:guava:$room_version"
-
-    // Test helpers
-    testImplementation "android.arch.persistence.room:testing:$room_version"
-
-
-    // PAGING
-    implementation "android.arch.paging:runtime:$paging_version"
-
-    // alternatively - without Android dependencies for testing
-    testImplementation "android.arch.paging:common:$paging_version"
-
-    // optional - RxJava support, currently in release candidate
-    implementation "android.arch.paging:rxjava2:$paging_version"
-
-
-    // WORK MANAGER
-    implementation "android.arch.work:work-runtime:$work_version" // use -ktx for Kotlin
-
-    // optional - Firebase JobDispatcher support
-    implementation "android.arch.work:work-firebase:$work_version"
-
-    // optional - Test helpers
-    androidTestImplementation "android.arch.work:work-testing:$work_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesAndroidVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesCoreVersion"
+    kapt "android.arch.lifecycle:compiler:$lifecycleVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
 }

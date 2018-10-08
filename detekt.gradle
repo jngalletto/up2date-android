@@ -1,0 +1,6 @@
+detekt {
+    toolVersion = "$detektVersion"
+    input = files("src/main/kotlin")
+    filters = ".*test.*,.*/resources/.*,.*/tmp/.*"
+    config = files("../.detekt/config.yml")
+}
