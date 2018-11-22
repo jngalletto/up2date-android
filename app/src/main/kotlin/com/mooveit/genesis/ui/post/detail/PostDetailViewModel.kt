@@ -15,9 +15,7 @@ class PostDetailViewModel @Inject constructor(
   @NavigableArg
   internal var post: Post? = null
 
-  lateinit var comments: LiveData<Resource<List<Comment>>>
-
   override fun setup() {
-    comments = getPostCommentsUseCase.getPostComments(post?.id ?: 0)
+
   }
 }
