@@ -16,6 +16,6 @@ interface PostService {
 
     @GET(HEADLINES_URL)
     fun getTopHeadLines(
-            @Query(COUNTRY_KEY) country: String = DEFAULT_COUNTRY_CODE
+        @Query(COUNTRY_KEY) country: String = DEFAULT_COUNTRY_CODE
     ): Deferred<FetchPostsResponse>
 }

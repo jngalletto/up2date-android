@@ -6,7 +6,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class FetchPostsResponse(
-        val status: String = "",
-        val totalResults: Int = 0,
-        val articles: List<Post> = listOf<Post>()
+    val status: String = "",
+    val totalResults: Int = 0,
+    val articles: List<Post> = listOf<Post>()
 ) : Parcelable
