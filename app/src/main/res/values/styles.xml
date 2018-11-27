@@ -111,12 +111,15 @@
         <item name="behavior_peekHeight">@dimen/dimen_320</item>
     </style>
 
-    <style name="Base.TextView.Chakra" parent="Base.Wrapper.FullWidth">
+    <style name="Base.TextView.NewsDescription" parent="Base.Wrapper.FullWidth">
         <item name="android:fontFamily">@font/chakra</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/content_text_size</item>
     </style>
 
-    <style name="Base.TextView.Monserrat" parent="Base.Wrapper.FullWidth">
+    <style name="Base.TextView.NewsTitle" parent="Base.Wrapper.FullWidth">
         <item name="android:fontFamily">@font/monserrat</item>
         <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/title_text_size</item>
     </style>
 </resources>
