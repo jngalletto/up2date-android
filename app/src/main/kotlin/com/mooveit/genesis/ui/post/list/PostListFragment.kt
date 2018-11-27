@@ -3,7 +3,9 @@ package com.mooveit.genesis.ui.post.list
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.mooveit.genesis.R
+import com.mooveit.genesis.R.id.recyclerView
 import com.mooveit.genesis.helper.observe
+import com.mooveit.genesis.model.fetchPostsResponse.FetchPostsResponse
 import com.mooveit.genesis.model.post.Post
 import com.mooveit.genesis.repository.core.Resource
 import com.mooveit.genesis.ui.common.SingleItemAdapter
@@ -33,8 +35,8 @@ class PostListFragment : BaseNavigableFragment<PostListViewModel>() {
     adapter = postsAdapter
   }
 
-  private fun postsLoaded(posts: Resource<List<Post>>?) {
-    posts?.value?.let { postsAdapter?.items = it }
+  private fun postsLoaded(posts: Resource<FetchPostsResponse>?) {
+    posts?.value?.let { postsAdapter?.items = it.articles }
   }
 
   private fun createItem(view: View) = PostListItem(view) {
