@@ -18,7 +18,7 @@ class PostListItem(val view: View, val onClick: (Post) -> Unit) : SingleItemView
             body.text = item.description
             body.visibleIf { item.description != null }
             Glide.with(view)
-                .load(item.urlToImage ?: "https://pbs.twimg.com/profile_images/942571181051400192/rudqtcNK.jpg")
+                .load(item.urlToImage ?: "https://static01.nyt.com/images/2018/11/27/us/27dc-manafort1/27dc-manafort1-superJumbo.jpg?quality=90&auto=webp")
                 .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.ALL))
                 .into(newsImage)
         }

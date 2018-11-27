@@ -111,4 +111,12 @@
         <item name="behavior_peekHeight">@dimen/dimen_320</item>
     </style>
 
+    <style name="Base.TextView.Chakra" parent="Base.Wrapper.FullWidth">
+        <item name="android:fontFamily">@font/chakra</item>
+    </style>
+
+    <style name="Base.TextView.Monserrat" parent="Base.Wrapper.FullWidth">
+        <item name="android:fontFamily">@font/monserrat</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
 </resources>

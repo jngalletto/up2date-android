@@ -6,5 +6,6 @@
     <color name="secondaryColor">#1795B2</color>
     <color name="osloGray">#85878A</color>
     <color name="white">@android:color/white</color>
+    <color name="black">@android:color/black</color>
     <color name="trout">#4D555C</color>
 </resources>
