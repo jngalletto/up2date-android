@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    style="@style/Base.Container"
     >
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:foreground="?attr/selectableItemBackground"
+        app:itemIconTint="@color/trout"
+        app:itemTextColor="@color/trout"
+        app:menu="@menu/menu_dashboard_bottom"
+        style="@style/Base.Wrapper.FullWidth"
+        />
+
+    <include
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        layout="@layout/layout_toolbar"
+        />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        style="@style/Base.Container"
+        android:layout_above="@id/bottomNavigation"
+        android:layout_below="@id/appBarLayout"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         />
 
-</LinearLayout>
+</RelativeLayout>

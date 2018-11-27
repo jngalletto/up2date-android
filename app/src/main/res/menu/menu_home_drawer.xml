@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <group
+        android:id="@+id/mapOptions"
+        android:checkableBehavior="none"
+        >
+
+        <item
+            android:id="@+id/legend"
+            android:title="@string/top_headlines"
+            />
+
+        <item
+            android:id="@+id/highlights"
+            android:title="@string/everything"
+            />
+
+
+        <item
+            android:id="@+id/sources"
+            android:title="@string/sources"
+            />
+    </group>
+
+    <group
+        android:id="@+id/generalOptions"
+        android:checkableBehavior="none"
+        >
+
+        <item
+            android:id="@+id/dashboard"
+            android:title="@string/back_to_dashboard"
+            />
+
+    </group>
+
+</menu>
