@@ -2,6 +2,8 @@
     <string name="app_name">up2date</string>
     <string name="base_url">https://newsapi.org/v2/</string>
 
+
+
     <string name="comments_with_amount">Comments (%1$d)</string>
     <string name="top_headlines">Top headlines</string>
     <string name="everything">Everything</string>

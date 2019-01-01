@@ -18,7 +18,6 @@
             android:title="@string/everything"
             />
 
-
         <item
             android:id="@+id/sources"
             android:title="@string/sources"

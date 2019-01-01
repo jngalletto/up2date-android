@@ -39,6 +39,8 @@
         <activity
             android:label="@string/app_name"
             android:name=".ui.post.detail.PostDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.V14.Theme.MaterialComponents.Light.DarkActionBar.Bridge"
             />
 
     </application>

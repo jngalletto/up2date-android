@@ -19,6 +19,7 @@
     <dimen name="drawer_height">192dp</dimen>
     <dimen name="save_offline_progress_bar_size">200dp</dimen>
     <dimen name="dimen_320">320dp</dimen>
+    <dimen name="small_padding">10dp</dimen>
 
     <dimen name="sp_dimen_unit">1sp</dimen>
     <dimen name="small_text_size">12sp</dimen>
@@ -26,4 +27,5 @@
     <dimen name="title_text_size">16sp</dimen>
     <dimen name="save_offline_progress_text_size">24sp</dimen>
     <dimen name="dimen_18">18dp</dimen>
+    <dimen name="fixed_size_medium_large_height">220dp</dimen>
 </resources>
