@@ -1,7 +1,6 @@
 package com.mooveit.genesis.service
 
 import com.mooveit.genesis.model.fetchPostsResponse.FetchPostsResponse
-import com.mooveit.genesis.model.post.Post
 import kotlinx.coroutines.experimental.Deferred
 import retrofit2.http.GET
 import retrofit2.http.Query

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dimen_zero">0dp</dimen>
+    <dimen name="dimen_unit">1dp</dimen>
+    <dimen name="dimen_4">4dp</dimen>
+    <dimen name="dimen_8">8dp</dimen>
+    <dimen name="dimen_12">12dp</dimen>
+    <dimen name="dimen_16">16dp</dimen>
+    <dimen name="dimen_20">20dp</dimen>
+    <dimen name="dimen_24">24dp</dimen>
+    <dimen name="map_legend_image_size">36dp</dimen>
+    <dimen name="dimen_40">40dp</dimen>
+    <dimen name="dimen_50">50dp</dimen>
+    <dimen name="layer_image_height">68dp</dimen>
+    <dimen name="map_legend_item_height">94dp</dimen>
+    <dimen name="layer_image_width">112dp</dimen>
+    <dimen name="contact_info_avatar_height">130dp</dimen>
+    <dimen name="map_legend_item_width">150dp</dimen>
+    <dimen name="drawer_height">192dp</dimen>
+    <dimen name="save_offline_progress_bar_size">200dp</dimen>
+    <dimen name="dimen_320">320dp</dimen>
+    <dimen name="small_padding">10dp</dimen>
+
+    <dimen name="sp_dimen_unit">1sp</dimen>
+    <dimen name="small_text_size">12sp</dimen>
+    <dimen name="content_text_size">14sp</dimen>
+    <dimen name="title_text_size">16sp</dimen>
+    <dimen name="save_offline_progress_text_size">24sp</dimen>
+    <dimen name="dimen_18">18dp</dimen>
+    <dimen name="fixed_size_medium_large_height">220dp</dimen>
+</resources>

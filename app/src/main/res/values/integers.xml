@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="integer_unit">1</integer>
+
+    <integer name="anim_duration_medium">200</integer>
+</resources>

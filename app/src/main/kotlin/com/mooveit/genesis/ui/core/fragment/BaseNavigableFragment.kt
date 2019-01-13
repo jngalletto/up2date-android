@@ -1,8 +1,11 @@
 package com.mooveit.genesis.ui.core.fragment
 
+import android.app.AlertDialog
 import android.arch.lifecycle.ViewModelProviders
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.support.annotation.StringRes
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,4 +32,22 @@ abstract class BaseNavigableFragment<T> : BaseFragment() where T : BaseViewModel
   }
 
   protected fun Intent.navigate() = activity?.startActivity(this)
+
+  protected fun Intent.navigateAndFinish() = activity?.let {
+    it.startActivity(this)
+    it.finish()
+  }
+
+  protected fun showAlert(
+      @StringRes title: Int,
+      @StringRes message: Int,
+      @StringRes buttonText: Int = android.R.string.ok,
+      action: ((DialogInterface) -> Unit)? = null
+  ): Unit = AlertDialog.Builder(context)
+      .setTitle(title)
+      .setMessage(message)
+      .setCancelable(true)
+      .setNegativeButton(buttonText) { dialog, _ -> action?.invoke(dialog) ?: dialog.dismiss() }
+      .create()
+      .show()
 }

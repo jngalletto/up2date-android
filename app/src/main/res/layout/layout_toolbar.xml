@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.AppBarLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    style="@style/Base.Wrapper.FullWidth"
+    >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:titleTextColor="@color/trout"
+        app:theme="@style/ThemeOverlay.AppCompat"
+        style="@style/Base.Wrapper.FullWidth"
+        />
+
+</android.support.design.widget.AppBarLayout>
