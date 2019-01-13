@@ -99,6 +99,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesAndroidVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesCoreVersion"
+    implementation "com.google.android.gms:play-services-location:$locationServicesVersion"
     implementation ("com.github.bumptech.glide:glide:$glideVersion") {
         exclude group: "com.android.support"
     }

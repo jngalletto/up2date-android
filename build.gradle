@@ -29,6 +29,7 @@ buildscript {
         timberVersion = '4.7.1'
         detektVersion = '1.0.0.RC9.2'
         glideVersion = '4.8.0'
+        locationServicesVersion = '16.0.0'
     }
 
     repositories {
