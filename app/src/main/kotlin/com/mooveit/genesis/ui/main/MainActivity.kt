@@ -13,6 +13,10 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.mapright.android.helper.isPermissionGranted
 import android.location.Geocoder
+import com.mooveit.genesis.App
+import com.mooveit.genesis.R
+import com.mooveit.genesis.model.country.Country
+import com.pixplicity.easyprefs.library.Prefs
 import java.util.*
 
 
@@ -23,8 +27,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-        requestLocationPermissionIfNeeded {
-            setLocationListener()
+
+        if (Prefs.contains(getString(R.string.preferences_country_key))){
+            proceedToPostListActivity()
+        } else {
+            requestLocationPermissionIfNeeded {
+                setLocationListener()
+            }
         }
     }
 
@@ -42,20 +51,37 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun getCurrentCountry(countryFound: String, countriesAvailable: List<String>) =
+        countriesAvailable.firstOrNull { country -> country == countryFound }
+            ?: getString(R.string.united_states)
+
+    private fun checkCountryAndSave(countryFound: String) {
+        val countriesAvailable = ArrayList(Arrays.asList<String>(*resources.getStringArray(R.array.countries)))
+        getCurrentCountry(countryFound.toLowerCase(), countriesAvailable).let {
+            Prefs.putString(getString(R.string.preferences_country_key), it)
+        }
+    }
+
     @SuppressLint("MissingPermission")
     private fun setLocationListener() {
         fusedLocationClient.lastLocation
-            .addOnSuccessListener { location : Location? ->
+            .addOnSuccessListener { location: Location? ->
                 location?.let {
                     val gcd = Geocoder(this, Locale.getDefault())
                     val addresses = gcd.getFromLocation(location.latitude, location.longitude, 1)
                     if (addresses.size > 0) {
                         val countryName = addresses[0].countryCode
-                        startActivity(router.routeToPostListActivity())
-                        finish()
+                        checkCountryAndSave(countryName)
+                        proceedToPostListActivity()
                     }
                 }
             }
+    }
+
+    private fun proceedToPostListActivity() {
+        val countryKey = Prefs.getString(getString(R.string.preferences_country_key), getString(R.string.united_states))
+        startActivity(router.routeToPostListActivity(Country(countryKey)))
+        finish()
     }
 
     @TargetApi(Build.VERSION_CODES.M)

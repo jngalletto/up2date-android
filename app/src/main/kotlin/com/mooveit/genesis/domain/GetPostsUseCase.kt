@@ -6,5 +6,5 @@ import javax.inject.Singleton
 
 @Singleton
 class GetPostsUseCase @Inject constructor(private val postRepository: PostProvider) {
-  fun getPosts() = postRepository.getTopHeadlines()
+  fun getPosts(countryKey: String) = postRepository.getTopHeadlines(countryKey)
 }
