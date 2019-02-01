@@ -6,5 +6,5 @@ import com.mooveit.genesis.model.post.Post
 import com.mooveit.genesis.repository.core.Resource
 
 interface PostProvider {
-  fun getTopHeadlines(countryCode: String = ""): LiveData<Resource<FetchPostsResponse>>
+  fun getTopHeadlines(countryCode: String = "us"): LiveData<Resource<FetchPostsResponse>>
 }

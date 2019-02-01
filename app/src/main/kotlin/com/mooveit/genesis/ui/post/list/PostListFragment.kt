@@ -11,6 +11,7 @@ import com.mooveit.genesis.repository.core.Resource
 import com.mooveit.genesis.ui.common.SingleItemAdapter
 import com.mooveit.genesis.ui.core.fragment.BaseNavigableFragment
 import com.mooveit.genesis.ui.post.list.view.PostListItem
+import com.pixplicity.easyprefs.library.Prefs
 import kotlinx.android.synthetic.main.fragment_post_list.*
 import kotlinx.android.synthetic.main.layout_toolbar.view.*
 
