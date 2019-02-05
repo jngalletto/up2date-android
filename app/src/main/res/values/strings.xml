@@ -11,6 +11,9 @@
     <string name="back_to_dashboard">Back to dashboard</string>
 
     <!-- Preferences -->
+    <string name="news_image_transition_name">cardImageTransitionName</string>
+
+    <!-- Preferences -->
     <string name="preferences_country_key">Sources</string>
 
     <!-- Countries -->

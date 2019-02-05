@@ -20,6 +20,7 @@
             <ImageView
                 android:id="@+id/newsImage"
                 style="@style/Base.Wrapper.FullWidth"
+                android:transitionName="@string/news_image_transition_name"
                 android:layout_height="@dimen/fixed_size_medium_large_height"
                 android:padding="@dimen/small_padding"
                 android:scaleType="fitCenter"
