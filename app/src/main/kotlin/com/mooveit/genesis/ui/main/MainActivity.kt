@@ -74,6 +74,8 @@ class MainActivity : AppCompatActivity() {
                         checkCountryAndSave(countryName)
                         proceedToPostListActivity()
                     }
+                } ?: run {
+                    proceedToPostListActivity()
                 }
             }
     }
