@@ -37,6 +37,21 @@
         <item name="android:layout_height">match_parent</item>
     </style>
 
+    <style name="Base.ContainerWithoutPadding">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="Base.ContainerLeftRightPadded" parent="Base.ContainerWithoutPadding">
+        <item name="android:paddingRight">@dimen/medium_padding</item>
+        <item name="android:paddingLeft">@dimen/medium_padding</item>
+    </style>
+
+    <style name="Base.ContainerFullPadded" parent="Base.ContainerLeftRightPadded">
+        <item name="android:paddingTop">@dimen/medium_padding</item>
+        <item name="android:paddingBottom">@dimen/medium_padding</item>
+    </style>
+
     <style name="Base.Wrapper">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -60,6 +75,15 @@
         <item name="android:textColor">@color/trout</item>
         <item name="android:textColorHighlight">@color/colorAccent</item>
         <item name="backgroundTint">@color/trout</item>
+    </style>
+
+    <style name="Base.ContainerWithoutPadding.Scroll">
+        <item name="android:fillViewport">true</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+    </style>
+
+    <style name="Base.ContainerWithoutPadding.Scroll.White">
+        <item name="android:background">@color/colorPrimary</item>
     </style>
 
     <style name="EditText.Email">

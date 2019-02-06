@@ -20,13 +20,10 @@ class PostDetailFragment : BaseNavigableFragment<PostDetailViewModel>() {
   }
 
   private fun setupView() {
-    commentsRecyclerView.apply {
-      layoutManager = LinearLayoutManager(activity)
-    }
-
     viewModel.post?.let {
       title.text = it.title
       body.text = it.description
+        content.text = it.content
       activity?.let { context ->
         it.urlToImage?.let {
           Glide.with(context)
