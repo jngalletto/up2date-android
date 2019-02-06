@@ -25,6 +25,7 @@
             android:gravity="end">
 
             <ImageView
+                android:id="@+id/openBrowser"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginEnd="@dimen/small_margin"
@@ -32,6 +33,7 @@
                 android:src="@drawable/ic_open_in_browser"/>
 
             <ImageView
+                android:id="@+id/sharePost"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/ic_share_post"/>

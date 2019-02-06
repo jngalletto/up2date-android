@@ -28,6 +28,19 @@ class PostDetailFragment : BaseNavigableFragment<PostDetailViewModel>() {
         setupView()
     }
 
+    private fun sharePost(title: String, url: String) {
+        val i = Intent(Intent.ACTION_SEND)
+        i.type = "text/plain"
+        i.putExtra(Intent.EXTRA_SUBJECT, title)
+        i.putExtra(Intent.EXTRA_TEXT, url)
+        startActivity(Intent.createChooser(i, "Share URL"))
+    }
+
+    private fun openUrl(url: String) {
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(browserIntent)
+    }
+
     private fun setupView() {
         viewModel.post?.let {
             title.text = it.title
@@ -46,8 +59,15 @@ class PostDetailFragment : BaseNavigableFragment<PostDetailViewModel>() {
             }
 
             content.setOnClickListener { _ ->
-                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(it.url))
-                startActivity(browserIntent)
+               openUrl(it.url)
+            }
+
+            openBrowser.setOnClickListener { _ ->
+                openUrl(it.url)
+            }
+
+            sharePost.setOnClickListener { _ ->
+                sharePost(it.title, it.url)
             }
 
             activity?.let { context ->
