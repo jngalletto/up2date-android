@@ -19,6 +19,26 @@
             android:transitionName="@string/news_image_transition_name"/>
 
         <LinearLayout
+            style="@style/Base.Wrapper.FullWidth"
+            android:paddingEnd="@dimen/medium_padding"
+            android:paddingRight="@dimen/medium_padding"
+            android:gravity="end">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:layout_marginRight="@dimen/small_margin"
+                android:src="@drawable/ic_open_in_browser"/>
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_share_post"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             style="@style/Base.ContainerFullPadded"
             android:orientation="vertical">
 
@@ -26,7 +46,6 @@
                 android:id="@+id/title"
                 style="@style/Base.Wrapper.FullWidth"
                 android:paddingBottom="@dimen/medium_padding"
-                android:paddingTop="@dimen/medium_padding"
                 android:textIsSelectable="false"
                 android:textSize="18sp"
                 tools:text="sunt aut facere repellat provident occaecati "
