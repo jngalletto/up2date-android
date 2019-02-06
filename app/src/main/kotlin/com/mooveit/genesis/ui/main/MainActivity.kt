@@ -73,6 +73,8 @@ class MainActivity : AppCompatActivity() {
                         val countryName = addresses[0].countryCode
                         checkCountryAndSave(countryName)
                         proceedToPostListActivity()
+                    } else {
+                        proceedToPostListActivity()
                     }
                 } ?: run {
                     proceedToPostListActivity()
